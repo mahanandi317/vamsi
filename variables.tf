@@ -4,15 +4,7 @@ variable "rg_name" {
 
 
 
-variable "vnet_name" {
- 
-}
 
-
-
-variable "subnet_name" {
-
-}
 
 variable "public_ip_name" {
 
