@@ -19,8 +19,7 @@ variable "public_ip_name" {
 }
 
 variable "vm_name" {
-  description = "Name of the virtual machine."
-  default     = "linuxcomputevm"
+ 
 }
 
 variable "nsg_name" {
