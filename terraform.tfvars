@@ -1,6 +1,5 @@
 rg_name = "PZI-GXUS-NEW-RGP-ANAL-D001"
-vnet_name = "POC_VNET"
-subnet_name = "POC_SUBNET"
+
 public_ip_name = "POC_PULIC_IP"
 vm_name = "POC_VM_LINUX"
 nsg_name = "POC_NSG"
