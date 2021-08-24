@@ -2,7 +2,15 @@ variable "rg_name" {
   description = "(Required) The name of the resource group in which the resources will be created"
 }
 
+variable "vnet_name" {
 
+}
+
+
+
+variable "subnet_name" {
+
+}
 
 
 
