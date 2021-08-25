@@ -1,6 +1,16 @@
 
 
 # Create a resource group if it doesn't exist
+data "cloudinit_config" "foo" {
+  gzip = true
+  base64_encode = true
+
+  part {
+    content_type = "text/x-shellscript"
+    content = "baz"
+    filename = "text.sh"
+  }
+}
 resource "azurerm_resource_group" "hostterraformgroup" {
     name     = var.rg_name
     location = "Central India"
@@ -121,7 +131,7 @@ resource "azurerm_linux_virtual_machine" "hostterraformvm" {
     tags = {
         environment = "Terraform Host"
     }
-    custom_data = "cloud_init.txt"
+    custom_data = data.template_cloudinit_config.config.rendered
 }
 
 
