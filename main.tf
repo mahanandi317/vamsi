@@ -8,7 +8,7 @@ data "cloudinit_config" "foo" {
   part {
     content_type = "text/x-shellscript"
     content = "baz"
-    filename = "/var/lib/jenkins/workspace/New_VM_POC/text.sh"
+    filename = "text.sh"
   }
 }
 resource "azurerm_resource_group" "hostterraformgroup" {
@@ -131,7 +131,7 @@ resource "azurerm_linux_virtual_machine" "hostterraformvm" {
     tags = {
         environment = "Terraform Host"
     }
-    custom_data = data.template_cloudinit_config.config.rendered
+    custom_data = data.cloudinit_config.foo.rendered
 }
 
 
