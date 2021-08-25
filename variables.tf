@@ -12,8 +12,6 @@ variable "subnet_name" {
 
 }
 
-
-
 variable "public_ip_name" {
 
 }
