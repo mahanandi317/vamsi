@@ -8,7 +8,7 @@ data "cloudinit_config" "foo" {
   part {
     content_type = "text/x-shellscript"
     content = "baz"
-    filename = "text.sh"
+    filename = "/var/lib/jenkins/workspace/New_VM_POC/text.sh"
   }
 }
 resource "azurerm_resource_group" "hostterraformgroup" {
