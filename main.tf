@@ -78,7 +78,7 @@ resource "azurerm_network_security_group" "hostterraformnsg" {
       protocol                = "tcp"
       source_port_range       = "*"
       destination_port_range  = "8080"
-      source_address_prefixes = ["10.151.0.0/24", "10.151.1.0/24"]
+      source_address_prefixes = "*"
       description             = "description-http"
     }
     ]
