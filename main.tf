@@ -121,7 +121,7 @@ resource "azurerm_linux_virtual_machine" "hostterraformvm" {
     tags = {
         environment = "Terraform Host"
     }
-    custom_data = "test.sh"
+    custom_data = "cloud_init.txt"
 }
 
 
