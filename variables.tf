@@ -20,11 +20,6 @@ variable "vm_name" {
  
 }
 
-variable "nsg_name" {
-  description = "(Optional) Name of the availability set. Default is derived from vm_name"
-  default     = ""
-}
-
 variable "nic_name" {
 
 }
