@@ -2,7 +2,7 @@
 
 # Create a resource group if it doesn't exist
 
-resource "azurerm_resource_group" "hostterraformgroup1" {
+resource "azurerm_resource_group" "hostterraformgroup12" {
     name     = var.rg_name
     location = "Central India"
 
@@ -16,7 +16,7 @@ resource "azurerm_virtual_network" "hostterraformnetwork" {
     name                = var.vnet_name
     address_space       = ["10.0.0.0/16"]
     location            = "Central India"
-    resource_group_name = azurerm_resource_group.hostterraformgroup1.name
+    resource_group_name = azurerm_resource_group.hostterraformgroup12.name
 
     tags = {
         environment = "Terraform Host"
@@ -26,7 +26,7 @@ resource "azurerm_virtual_network" "hostterraformnetwork" {
 # Create subnet
 resource "azurerm_subnet" "hostterraformsubnet" {
     name                 = var.subnet_name
-    resource_group_name  = azurerm_resource_group.hostterraformgroup1.name
+    resource_group_name  = azurerm_resource_group.hostterraformgroup12.name
     virtual_network_name = azurerm_virtual_network.hostterraformnetwork.name
     address_prefixes       = ["10.0.1.0/24"]
     service_endpoints = ["Microsoft.AzureActiveDirectory","Microsoft.AzureCosmosDB","Microsoft.ContainerRegistry","Microsoft.EventHub","Microsoft.KeyVault","Microsoft.ServiceBus","Microsoft.Sql","Microsoft.Storage","Microsoft.Web"]
@@ -35,7 +35,7 @@ resource "azurerm_subnet" "hostterraformsubnet" {
 resource "azurerm_public_ip" "hostterraformpublicip" {
     name                         = var.public_ip_name
     location                     = "Central India"
-    resource_group_name          = azurerm_resource_group.hostterraformgroup1.name
+    resource_group_name          = azurerm_resource_group.hostterraformgroup12.name
     allocation_method            = "Dynamic"
 
     tags = {
@@ -48,7 +48,7 @@ resource "azurerm_public_ip" "hostterraformpublicip" {
 resource "azurerm_network_interface" "hostterraformnic" {
     name                      = var.nic_name
     location                  = "Central India"
-    resource_group_name       = azurerm_resource_group.hostterraformgroup1.name
+    resource_group_name       = azurerm_resource_group.hostterraformgroup12.name
 
     ip_configuration {
         name                          = var.ipconfig_name
@@ -69,7 +69,7 @@ resource "azurerm_network_interface" "hostterraformnic" {
 resource "azurerm_linux_virtual_machine" "hostterraformvm" {
     name                  = var.vm_name
     location              = "Central India"
-    resource_group_name   = azurerm_resource_group.hostterraformgroup1.name
+    resource_group_name   = azurerm_resource_group.hostterraformgroup12.name
     network_interface_ids = [azurerm_network_interface.hostterraformnic.id]
     size                  = var.vm_size
 
