@@ -1,4 +1,4 @@
 output publicIp {
-    value = azurerm_public_ip.hostterraformpublicip.ip_address
+    value = azurerm_public_ip.vamsipublicip.ip_address
 }
 
