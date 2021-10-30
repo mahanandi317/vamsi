@@ -33,7 +33,7 @@ resource "azurerm_subnet" "vamsisubnet" {
 # Create public IPs
 resource "azurerm_public_ip" "vamsipublicip" {
     name                         = var.public_ip_name
-    location                     = "Central India"
+    location                     = "East Asia"
     resource_group_name          = azurerm_resource_group.vamsi.name
     allocation_method            = "Dynamic"
 
