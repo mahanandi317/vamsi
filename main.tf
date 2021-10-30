@@ -3,7 +3,7 @@
 
 resource "azurerm_resource_group" "vamsi" {
     name     = var.rg_name
-    location = "East Asia"
+    location = "Central India"
 
     tags = {
         environment = "vamsi"
@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "vamsi" {
 resource "azurerm_virtual_network" "vamsinetwork" {
     name                = var.vnet_name
     address_space       = ["10.0.0.0/16"]
-    location            = "East Asia"
+    location            = "Central India"
     resource_group_name = azurerm_resource_group.vamsi.name
 
     tags = {
@@ -33,7 +33,7 @@ resource "azurerm_subnet" "vamsisubnet" {
 # Create public IPs
 resource "azurerm_public_ip" "vamsipublicip" {
     name                         = var.public_ip_name
-    location                     = "East Asia"
+    location                     = "Central India"
     resource_group_name          = azurerm_resource_group.vamsi.name
     allocation_method            = "Dynamic"
 
@@ -43,10 +43,11 @@ resource "azurerm_public_ip" "vamsipublicip" {
 }
 
 
+
 # Create network interface
 resource "azurerm_network_interface" "vamsinic" {
     name                      = var.nic_name
-    location                  = "East Asia"
+    location                  = "Central India"
     resource_group_name       = azurerm_resource_group.vamsi.name
 
     ip_configuration {
@@ -67,7 +68,7 @@ resource "azurerm_network_interface" "vamsinic" {
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "vamsivm" {
     name                  = var.vm_name
-    location              = "East Asia"
+    location              = "Central India"
     resource_group_name   = azurerm_resource_group.vamsi.name
     network_interface_ids = [azurerm_network_interface.vamsinic.id]
     size                  = var.vm_size
